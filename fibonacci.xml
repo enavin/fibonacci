@@ -1,0 +1,9 @@
+<!-- Sample Output Data -->
+<fibonacci xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="fibonacci.xsd">
+	<value index="0">0</value>
+	<value index="1">1</value>
+	<value index="2">1</value>
+	<value index="3">2</value>
+	<value index="4">3</value>
+</fibonacci>
