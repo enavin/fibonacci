@@ -1,7 +1,7 @@
 Fibonacci
 =========
 
-This sample fibonacci REST service is built using SpringFramework v3.2, JDK 1.6, Servlet 2.5.
+This sample fibonacci REST service is built using SpringFramework v3.2, JDK 1.6, Servlet 3.x.
 
 It generates fibonacci series as output based on a given number. The result can be outputted in the form of XML or JSON. XML is the default.
 
@@ -59,14 +59,17 @@ Output
 
 <b>Success XML Response</b>
 <pre>
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?><fibonacci><value index="0">0</value><value index="1">1</value><value index="2">1</value><value index="3">2</value><value index="4">3</value></fibonacci>
+<textarea><?xml version="1.0" encoding="UTF-8" standalone="yes"?><fibonacci><value index="0">0</value><value index="1">1</value><value index="2">1</value><value index="3">2</value><value index="4">3</value></fibonacci></textarea>
 </pre>
 
 
 <b>Failure XML Response</b>
 <pre>
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?><badRequest code="400"><message>Bad Request</message><details>Negative number is not allowed. Please check your input and retry.</details></badRequest>
+```xml
+<text<?xml version="1.0" encoding="UTF-8" standalone="yes"?><badRequest code="400"><message>Bad Request</message><details>Negative number is not allowed. Please check your input and retry.</details></badRequest>
+```
 </pre>
+
 
 
 <h3>Usage</h3>
