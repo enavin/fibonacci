@@ -8,7 +8,7 @@ import com.sample.rest.entity.binding.Fibonacci;
 import com.sample.rest.service.fibonacci.FibonacciService;
 
 /**
- * This implementation retrieves the fibonacci series via fibonacci iterative based recursive module
+ * This implementation retrieves the fibonacci series via fibonacci iterative based module
  * TODO: enhance to detect the number of CPUs and switch to parallel processing fibonanci component for better performance and scalability
  *
  * @author Naveen
