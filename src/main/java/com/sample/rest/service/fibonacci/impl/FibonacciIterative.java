@@ -22,11 +22,13 @@ public class FibonacciIterative {
             return previousOne;
 	}
 
-	public TreeMap<String,BigInteger> getFibonacci(int fibNumber) {
+	public TreeMap<String,BigInteger> getFibonacci(int fibNumber) throws IllegalArgumentException {
+		if( fibNumber <= 0)
+			throw new IllegalArgumentException("Negative number or zero is not allowed. Input seqNumber needs to be greater than zero. Please check your input and retry.");
+	
 		TreeMap<String,BigInteger> fibCache = new TreeMap<String,BigInteger>();
 		for (int i = 0; i < fibNumber; i++){
 			fibCache.put(Integer.toString(i), BigInteger.valueOf(fib(i)));
-			//System.out.print(fib(i) + ", ");
 		}
 		return fibCache;
 	}
