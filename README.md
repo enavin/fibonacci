@@ -55,6 +55,19 @@ Output
 </tr>
 </table>
 
+<h3>Example Output</h3>
+
+<b>Success XML Response</b>
+<pre>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><fibonacci><value index="0">0</value><value index="1">1</value><value index="2">1</value><value index="3">2</value><value index="4">3</value></fibonacci>
+</pre>
+
+
+<b>Failure XML Response</b>
+<pre>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><badRequest code="400"><message>Bad Request</message><details>Negative number is not allowed. Please check your input and retry.</details></badRequest>
+</pre>
+
 
 <h3>Usage</h3>
 <b>Clone and Build</b>
@@ -69,11 +82,13 @@ Rename the war file to "sample.war" and deploy to any of the J2EE Application Se
 This app has been tested in Tomcat 6.x and SpringSource tc Server 2.1. 
 
 Refer application server install guide for deployment.  After deploying the app, start the app server and invoke below url to validate if the service is working fine or not.
-<pre>http://<host url>:port/sample</pre>
-Default Tomcat app server runs on 8080 port, so the url could look like <pre>"http://localhost:8080/sample"</pre>
+<pre>http://hostname:port/sample</pre>
+Tomcat app server runs on 8080 port by default, so the url could look like <pre>"http://localhost:8080/sample"</pre>
 
 You should see the message "Fibonacci Sample app is up and running...."
 If not, please send the error detail to my id "idmvoice@gmail.com". I will get back to you as soon as I can.
+
+
 <h3>Summary</h3>
 While the sample is trivial, this should provide enough detail to get you up and running RESTful service using SpringFramework. You can download the code and modify it as you see fit. Enjoy!
 
