@@ -22,18 +22,23 @@ It generates fibonacci series as output based on a given number. The result can 
 curl -i http://localhost:8080/sample/fibonacci?seqNumber=5
 </pre>
 
+Input
+
 <table>
 <tr>
 <td><b>Name</b></td> <td><b>Style</b></td> <td><b>Type</b></td> <td><b>Description</b></td>
 </tr>
 <tr>
-<td>seqNumber</td> <td>Query Parameter</td> <td>String</td><td>Should be a valid positive number</td>
+<td>seqNumber</td> <td>Query Parameter</td> <td>Integer</td><td>Should be a valid positive number</td>
 </tr>
 <tr>
 <td>format</td> <td>Query Parameter</td> <td>String</td><td>Acceptable values "xml", "json"</td>
 </tr>
 </table>
 
+
+
+Output
 
 <table>
 <tr>
@@ -64,11 +69,9 @@ Rename the war file to "sample.war" and deploy to any of the J2EE Application Se
 This app has been tested in Tomcat 6.x and SpringSource tc Server 2.1. 
 
 Refer application server install guide for deployment.  After deploying the app, start the app server and invoke below url to validate if the service is working fine or not.
-http://<<host url>>:port/sample
+<pre>http://<host url>:port/sample</pre>
 Default Tomcat app server runs on 8080 port, so the url could look like <pre>"http://localhost:8080/sample"</pre>
 
 You should see the message "Fibonacci Sample app is up and running...."
 If not, please send the error detail to my id "idmvoice@gmail.com". I will get back to you as soon as I can.
-
-
 
