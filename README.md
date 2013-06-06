@@ -86,7 +86,7 @@ Output
 <b>Clone and Build</b>
 <pre>
 git clone git@github.com:enavin/fibonacci.git
-mvn package
+mvn package -DskipTests
 </pre>
 
 
