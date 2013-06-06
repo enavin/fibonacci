@@ -58,17 +58,13 @@ Output
 <h3>Example Output</h3>
 
 <b>Success XML Response</b>
-<pre>
 <textarea><?xml version="1.0" encoding="UTF-8" standalone="yes"?><fibonacci><value index="0">0</value><value index="1">1</value><value index="2">1</value><value index="3">2</value><value index="4">3</value></fibonacci></textarea>
-</pre>
 
 
 <b>Failure XML Response</b>
-<pre>
 ```xml
 <text<?xml version="1.0" encoding="UTF-8" standalone="yes"?><badRequest code="400"><message>Bad Request</message><details>Negative number is not allowed. Please check your input and retry.</details></badRequest>
 ```
-</pre>
 
 
 
