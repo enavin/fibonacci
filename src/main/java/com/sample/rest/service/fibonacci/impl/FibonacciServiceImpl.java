@@ -8,7 +8,7 @@ import com.sample.rest.entity.binding.Fibonacci;
 import com.sample.rest.service.fibonacci.FibonacciService;
 
 /**
- * This implementation retrieves the fibonacci series via fibonacci cached based recursive module
+ * This implementation retrieves the fibonacci series via fibonacci iterative based recursive module
  * TODO: enhance to detect the number of CPUs and switch to parallel processing fibonanci component for better performance and scalability
  *
  * @author Naveen
@@ -18,8 +18,8 @@ public class FibonacciServiceImpl implements FibonacciService {
 
 	@Override
 	public Fibonacci getFibonacci(int seqNumber) {
-		FibonacciCacheBasedGenerator fibCacheBasedGen = new FibonacciCacheBasedGenerator();
-		TreeMap<String,BigInteger> fibResult = fibCacheBasedGen.getFibonacci(seqNumber);
+		FibonacciIterative fibIt = new FibonacciIterative();
+		TreeMap<String,BigInteger> fibResult = fibIt.getFibonacci(seqNumber);	
 		Fibonacci fb = convertToFibonacciBean(fibResult);
 		return fb;
 	}

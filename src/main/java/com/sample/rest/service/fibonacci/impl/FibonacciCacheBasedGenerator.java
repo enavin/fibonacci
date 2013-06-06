@@ -30,7 +30,7 @@ public class FibonacciCacheBasedGenerator {
 		TreeMap<String,BigInteger> fibCache = new TreeMap<String,BigInteger>();
 		for (int i = 0; i < fibNumber; i++){
 			fibCache.put(Integer.toString(i),fib(i));
-			System.out.print(fib(i) + ", ");
+			//System.out.print(fib(i) + ", ");
 		}
 		return fibCache;
 	}

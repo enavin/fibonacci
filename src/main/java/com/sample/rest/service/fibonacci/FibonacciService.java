@@ -14,7 +14,7 @@ public interface FibonacciService {
 	
 	/**
 	 * @param seqNumber
-	 * @return Fibonacci sequence & series
+	 * @return Fibonacci series
 	 */
 	public Fibonacci getFibonacci(int seqNumber);
 
