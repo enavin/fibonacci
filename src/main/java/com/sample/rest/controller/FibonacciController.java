@@ -54,8 +54,8 @@ public class FibonacciController extends AbstractRESTController{
 	}
 	
 	ResponseEntity<Fibonacci> generateFibonacci(@RequestParam final int seqNumber) throws IllegalArgumentException, Exception{
-		if( seqNumber < 0)
-			throw new IllegalArgumentException("Negative number is not allowed. Please check your input and retry.");
+		if( seqNumber <= 0)
+			throw new IllegalArgumentException("Negative number or zero is not allowed. Input seqNumber needs to be greater than zero. Please check your input and retry.");
 	
 		try {
 			// call the service and get the fibonacci sequence & series
