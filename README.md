@@ -22,25 +22,6 @@ It generates fibonacci series as output based on a given number. The result can 
 curl -i http://localhost:8080/sample/fibonacci?seqNumber=5
 </pre>
 
-<h1>Usage</h1>
-<b>Clone and Build</b>
-<pre>
-git clone git@github.com:enavin/fibonacci.git
-mvn package
-</pre>
-
-<pre>
-This would generate the war file "fibonacci-0.0.1-SNAPSHOT.war" under target folder. Rename the war file to "sample.war" and deploy to any of the J2EE Application Server.
-This app has been tested in Tomcat 6.x and SpringSource tc Server 2.1. Refer application server install guide for deployment.
-After deploying the app, start the app server and invoke below url to validate if the service is working fine or not.
-http://<<host url>>:port/sample
-Default Tomcat app server runs on 8080 port, so the url could look like "http://localhost:8080/sample"
-You should see the message "Fibonacci Sample app is up and running...."
-If not, please send the error detail to my id "idmvoice@gmail.com". I will get back to you as soon as I can.
-
-</pre>
-
-
 <table>
 <tr>
 <td>Name</td> <td>Style</td> <td>Type</td> <td>Description</td>
@@ -69,4 +50,21 @@ If not, please send the error detail to my id "idmvoice@gmail.com". I will get b
 </tr>
 </table>
 
+
+<h3>Usage</h3>
+<b>Clone and Build</b>
+<pre>
+git clone git@github.com:enavin/fibonacci.git
+mvn package
+</pre>
+
+<pre>
+This would generate the war file "fibonacci-0.0.1-SNAPSHOT.war" under target folder. Rename the war file to "sample.war" and deploy to any of the J2EE Application Server.
+This app has been tested in Tomcat 6.x and SpringSource tc Server 2.1. Refer application server install guide for deployment.  After deploying the app, start the app server and invoke below url to validate if the service is working fine or not.
+<p>http://<<host url>>:port/sample</p>
+Default Tomcat app server runs on 8080 port, so the url could look like "http://localhost:8080/sample"
+You should see the message "Fibonacci Sample app is up and running...."
+If not, please send the error detail to my id "idmvoice@gmail.com". I will get back to you as soon as I can.
+
+</pre>
 
