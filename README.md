@@ -74,4 +74,7 @@ Default Tomcat app server runs on 8080 port, so the url could look like <pre>"ht
 
 You should see the message "Fibonacci Sample app is up and running...."
 If not, please send the error detail to my id "idmvoice@gmail.com". I will get back to you as soon as I can.
+<h3>Summary</h3>
+While the sample is trivial, this should provide enough detail to get you up and running RESTful service using SpringFramework. You can download the code and modify it as you see fit. Enjoy!
+
 
