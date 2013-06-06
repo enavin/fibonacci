@@ -17,14 +17,14 @@ It generates fibonacci series as output based on a given number. The result can 
 </table>
 
 
-<b>Execute</b>
+<h3>Execute</h3>
 <pre >
 curl -i http://localhost:8080/sample/fibonacci?seqNumber=5
 </pre>
 
 <table>
 <tr>
-<td>Name</td> <td>Style</td> <td>Type</td> <td>Description</td>
+<td><b>Name</b></td> <td><b>Style</b></td> <td><b>Type</b></td> <td><b>Description</b></td>
 </tr>
 <tr>
 <td>seqNumber</td> <td>Query Parameter</td> <td>String</td><td>Should be a valid positive number</td>
@@ -37,7 +37,7 @@ curl -i http://localhost:8080/sample/fibonacci?seqNumber=5
 
 <table>
 <tr>
-<td>Success/Failure</td> <td>StatusCode</td> <td>Description</td>
+<td><b>Success/Failure</b></td> <td><b>StatusCode</b></td> <td><b>Description</b></td>
 </tr>
 <tr>
 <td>Success</td> <td>200</td> <td>Returns fibonacci series</td>
