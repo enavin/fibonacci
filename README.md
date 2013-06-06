@@ -12,8 +12,12 @@ It generates fibonacci series as output based on a given number. The result can 
 <td bgcolor=grey><b>Verb</b></td> <td><b>URI</b></td> <td><b>Description</b></td>
 </tr>
 <tr>
-<td>GET</td> <td>fibonacci?seqNumber=integer&format=xml|json</td> <td>Get fibonacci series</td>
+<td>GET</td> <td>fibonacci.xml?seqNumber=integer</td> <td>Get fibonacci series in XML format</td>
 </tr>
+<tr>
+<td>GET</td> <td>fibonacci.json?seqNumber=integer</td> <td>Get fibonacci series in JSON format</td>
+</tr>
+
 </table>
 
 
@@ -30,9 +34,6 @@ Input
 </tr>
 <tr>
 <td>seqNumber</td> <td>Query Parameter</td> <td>Integer</td><td>Should be a valid positive number</td>
-</tr>
-<tr>
-<td>format</td> <td>Query Parameter</td> <td>String</td><td>Acceptable values "xml", "json"</td>
 </tr>
 </table>
 
