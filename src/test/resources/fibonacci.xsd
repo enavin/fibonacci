@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	version="1.0">
+	<xsd:element name="value">
+		<xsd:complexType mixed="true">
+			<xsd:attribute name="index" type="xsd:string" />
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="fibonacci">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="unbounded" ref="value" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>
