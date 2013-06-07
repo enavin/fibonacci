@@ -62,11 +62,11 @@ Output
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <fibonacci>
-<value index="0">0</value>
-<value index="1">1</value>
-<value index="2">1</value>
-<value index="3">2</value>
-<value index="4">3</value>
+   <value index="0">0</value>
+   <value index="1">1</value>
+   <value index="2">1</value>
+   <value index="3">2</value>
+   <value index="4">3</value>
 </fibonacci>
 ```
 
@@ -74,10 +74,10 @@ Output
 <b>Failure XML Response</b>
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<badRequest code="400">
-<message>Bad Request</message>
-<details>Negative number is not allowed. Please check your input and retry.</details>
-</badRequest>
+<error code="400">
+   <message>Bad Request</message>
+   <details>Negative number or zero is not allowed. Input seqNumber needs to be greater than zero. Please check your input and retry.</details>
+</error>
 ```
 
 
