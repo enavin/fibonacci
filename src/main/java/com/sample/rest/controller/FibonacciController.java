@@ -20,7 +20,7 @@ import com.sample.rest.utility.DataTransformation;
 
 
 /**
- * This REST controller generates fibonacci series as output based on a given number. 
+ * This REST controller generates fibonacci series based on a given number. 
  * The result can be outputted in the form of XML or JSON. XML is the default.
  * 
  * @author Naveen
@@ -33,12 +33,29 @@ public class FibonacciController extends AbstractRESTController{
 	@Autowired
 	FibonacciService fibonacciService;
 	
+	
+	/**
+	 * Gets a fibonacci series in xml format.
+	 * Verb: GET
+	 * 
+	 * @param seqNumber
+	 *            the number of series that need to be generated
+	 * @return the fibonancci series
+	 */
 	@RequestMapping(value = {"/fibonacci.xml","/fibonacci"}, method=RequestMethod.GET, produces= MediaType.APPLICATION_XML_VALUE)
 	@ResponseBody
 	ResponseEntity<Fibonacci> generateFibonacciAsXML(@RequestParam final int seqNumber) throws IllegalArgumentException, Exception{
 		return generateFibonacci(seqNumber);
 	}
 	
+	/**
+	 * Gets a fibonacci series in json format.
+	 * Verb: GET
+	 * 
+	 * @param seqNumber
+	 *            the number of series that need to be generated
+	 * @return the fibonancci series
+	 */
 	@RequestMapping(value = "/fibonacci.json", method=RequestMethod.GET, produces= MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	ResponseEntity<String> generateFibonacciAsJson(@RequestParam final int seqNumber){
@@ -56,7 +73,15 @@ public class FibonacciController extends AbstractRESTController{
 		}
 	}
 	
-	ResponseEntity<Fibonacci> generateFibonacci(@RequestParam final int seqNumber) throws IllegalArgumentException, Exception{
+	/**
+	 * Gets a fibonacci series as an object.
+	 * 
+	 * @param seqNumber
+	 *            the number of series that need to be generated
+	 *            
+	 * @return the fibonancci series object
+	 */
+	ResponseEntity<Fibonacci> generateFibonacci(final int seqNumber) throws IllegalArgumentException, Exception{
 		if( seqNumber <= 0)
 			throw new IllegalArgumentException("Negative number or zero is not allowed. Input seqNumber needs to be greater than zero. Please check your input and retry.");
 	

@@ -17,13 +17,14 @@ public class FibonacciCacheBasedGenerator {
 
 	private ArrayList<BigInteger> fibGenCache = new ArrayList<BigInteger>();
 
-	private BigInteger fib(int n) {
-		if (n >= fibGenCache.size()) {
-			fibGenCache.add(n, fib(n - 1).add(fib(n - 2)));
-		}
-		return fibGenCache.get(n);
-	}
-
+	/**
+	 * Generates fibonacci series
+	 * 
+	 * @param seqNumber
+	 *            the number of series that need to be generated
+	 * 
+	 * @return the fibonancci series object
+	 */
 	public TreeMap<String,BigInteger> getFibonacci(int fibNumber) throws IllegalArgumentException {
 		if( fibNumber <= 0)
 			throw new IllegalArgumentException("Negative number or zero is not allowed. Input seqNumber needs to be greater than zero. Please check your input and retry.");
@@ -37,5 +38,13 @@ public class FibonacciCacheBasedGenerator {
 		}
 		return fibCache;
 	}
+	
+	private BigInteger fib(int n) {
+		if (n >= fibGenCache.size()) {
+			fibGenCache.add(n, fib(n - 1).add(fib(n - 2)));
+		}
+		return fibGenCache.get(n);
+	}
+
 
 }

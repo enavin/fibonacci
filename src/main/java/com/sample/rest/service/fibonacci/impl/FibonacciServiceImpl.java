@@ -16,14 +16,30 @@ import com.sample.rest.service.fibonacci.FibonacciService;
 
 public class FibonacciServiceImpl implements FibonacciService {
 
+	/**
+	 * Gets a fibonacci series
+	 * 
+	 * @param seqNumber
+	 * 			the number of series that need to be generated
+	 * @return Fibonacci series
+	 */
 	@Override
 	public Fibonacci getFibonacci(int seqNumber) {
 		FibonacciIterative fibIt = new FibonacciIterative();
 		TreeMap<String,BigInteger> fibResult = fibIt.getFibonacci(seqNumber);	
+		//This treemap object provides flexibility to convert the fibonacci series to any format
 		Fibonacci fb = convertToFibonacciBean(fibResult);
 		return fb;
 	}
 
+	/**
+	 * Converts fibonacci series treemap to Fibonacci object
+	 * 
+	 * @param fibResult
+	 * 			fibonacci series in treemap object
+	 * 
+	 * @return Fibonacci series
+	 */
 	private Fibonacci convertToFibonacciBean(
 			TreeMap<String, BigInteger> fibResult) {
 		Fibonacci fb = new Fibonacci();

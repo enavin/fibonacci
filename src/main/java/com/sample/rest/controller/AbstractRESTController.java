@@ -28,16 +28,37 @@ public abstract class AbstractRESTController {
 		
 		//TODO: enhance to support exceptions in json format using ExceptionHandler. 
 		
+		/**
+		 * process illegal argument exception for xml based response.
+		 * 
+		 * @param illegalArgumentException
+		 *           
+		 * @return the generic error object
+		 */
 		@ExceptionHandler({IllegalArgumentException.class})
 		ResponseEntity<GenericError> handleInvalidInput(IllegalArgumentException e) {
 			return handleError(HttpStatus.BAD_REQUEST.value(), "Bad Request",e.getMessage(),e);
 		}
 		
+		/**
+		 * process exception for xml based response.
+		 * 
+		 * @param Exception
+		 *            
+		 * @return the generic error object
+		 */
 		@ExceptionHandler({Exception.class})
 		ResponseEntity<GenericError> handleUnExpectedError(Exception e) {
 			return handleError(HttpStatus.INTERNAL_SERVER_ERROR.value(), "Processing Error", "Processing Error. Please contact support for further assistance",e);
 		}
 		
+		/**
+		 * handle generic error.
+		 * 
+		 * @param Exception
+		 *            
+		 * @return the generic error object
+		 */
 		protected ResponseEntity<GenericError> handleError(int code, String message, String details, Exception e) {
 			GenericError error = new GenericError();
 			error.setCode(Integer.toString(code));
@@ -47,6 +68,13 @@ public abstract class AbstractRESTController {
 			return new ResponseEntity<GenericError>(error,HttpStatus.valueOf(code));
 		}
 		
+		/**
+		 * process illegal argument exception for json based response.
+		 * 
+		 * @param illegalArgumentException
+		 *            
+		 * @return the generic error object
+		 */
 		protected ResponseEntity<String> handleInvalidInputAsJson(IllegalArgumentException e)  {
 			ResponseEntity<GenericError> response= handleInvalidInput(e);
 			String errorJson ="";
@@ -60,6 +88,13 @@ public abstract class AbstractRESTController {
 			return new ResponseEntity<String>(errorJson,HttpStatus.BAD_REQUEST);
 		}
 		
+		/**
+		 * process exception for json based response.
+		 * 
+		 * @param illegalArgumentException
+		 *            
+		 * @return the generic error object
+		 */
 		protected ResponseEntity<String> handleUnExpectedErrorAsJson(Exception e)  {
 			return new ResponseEntity<String>(exceptionJson,HttpStatus.INTERNAL_SERVER_ERROR);
 		}

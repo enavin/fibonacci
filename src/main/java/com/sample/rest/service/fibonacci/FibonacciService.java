@@ -12,8 +12,12 @@ import com.sample.rest.entity.binding.Fibonacci;
  */
 public interface FibonacciService {
 	
+	
 	/**
+	 * Gets a fibonacci series
+	 * 
 	 * @param seqNumber
+	 * 			the number of series that need to be generated
 	 * @return Fibonacci series
 	 */
 	public Fibonacci getFibonacci(int seqNumber);

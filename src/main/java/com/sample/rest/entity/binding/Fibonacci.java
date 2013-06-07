@@ -9,6 +9,7 @@
 package com.sample.rest.entity.binding;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
