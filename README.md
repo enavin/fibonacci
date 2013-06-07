@@ -76,7 +76,10 @@ Output
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <error code="400">
    <message>Bad Request</message>
-   <details>Negative number or zero is not allowed. Input seqNumber needs to be greater than zero. Please check your input and retry.</details>
+   <details>
+      Negative number or zero is not allowed. Input seqNumber needs to be greater than zero. 
+      Please check your input and retry.
+   </details>
 </error>
 ```
 
@@ -96,7 +99,7 @@ This app has been tested in Tomcat 6.x and SpringSource tc Server 2.1.
 
 Refer application server install guide for deployment.  After deploying the app, start the app server and invoke below url to validate if the service is working fine or not.
 <pre>http://hostname:port/sample</pre>
-Tomcat app server runs on 8080 port by default, so the url could look like <pre>"http://localhost:8080/sample"</pre>
+Tomcat app server runs on 8080 port by default, so the url could look like <pre>"http://localhost:8080/sample/index.jsp"</pre>
 
 You should see the message "Fibonacci Sample app is up and running...."
 If not, please send the error detail to my id "idmvoice@gmail.com". I will get back to you as soon as I can.
