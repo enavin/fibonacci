@@ -23,6 +23,9 @@ import com.sample.rest.utility.DataTransformation;
  * This REST controller generates fibonacci series based on a given number. 
  * The result can be outputted in the form of XML or JSON. XML is the default.
  * 
+ * The web service accepts a number, n, as input and returns the first n Fibonacci numbers, starting from 0. I.e. given n = 5, 
+ * appropriate output would represent the sequence "0 1 1 2 3".
+ * 
  * @author Naveen
  */
 @Controller
@@ -82,7 +85,7 @@ public class FibonacciController extends AbstractRESTController{
 	 * @return the fibonancci series object
 	 */
 	ResponseEntity<Fibonacci> generateFibonacci(final int seqNumber) throws IllegalArgumentException, Exception{
-		if( seqNumber <= 0)
+		if( seqNumber < 0)
 			throw new IllegalArgumentException("Negative number or zero is not allowed. Input seqNumber needs to be greater than zero. Please check your input and retry.");
 	
 		try {
