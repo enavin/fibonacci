@@ -1,5 +1,7 @@
 package com.sample.rest.common;
 
+import net.sf.json.JSONObject;
+
 import com.sample.rest.entity.binding.Fibonacci;
 
 public class TestHelper {
@@ -12,5 +14,9 @@ public class TestHelper {
 		expectedFibonacci.addValue("3","2");
 		expectedFibonacci.addValue("4","3");
 		return expectedFibonacci;
+	}
+	
+	public static JSONObject getTestDataAsJSON(){
+		return JSONObject.fromObject(TestHelper.getTestData());
 	}
 }

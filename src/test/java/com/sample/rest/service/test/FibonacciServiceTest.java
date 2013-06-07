@@ -2,6 +2,8 @@ package com.sample.rest.service.test;
 
 import static org.junit.Assert.assertEquals;
 
+import net.sf.json.JSONObject;
+
 import org.junit.Test;
 
 import com.sample.rest.common.TestHelper;
@@ -21,7 +23,10 @@ public class FibonacciServiceTest {
 
 		FibonacciService fibonacciService = new FibonacciServiceImpl();
 		Fibonacci actualFibonacci = fibonacciService.getFibonacci(5);
-		assertEquals(TestHelper.getTestData(),actualFibonacci);
+		
+		JSONObject actualJson = JSONObject.fromObject(actualFibonacci);
+		
+		assertEquals(TestHelper.getTestDataAsJSON(),actualJson);
 		
 	}	
 	
