@@ -5,11 +5,14 @@
 // Generated on: 2013.06.06 at 12:27:17 AM EDT 
 //
 
+
 package com.sample.rest.entity.binding;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name = "badRequest")
-public class BadRequest extends BaseFault {
+@XmlRootElement(name = "error")
+public class GenericError extends BaseFault {
+
+   
 
 }
