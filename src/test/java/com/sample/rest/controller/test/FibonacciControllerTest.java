@@ -38,8 +38,6 @@ public class FibonacciControllerTest {
 		@Test
 		public void testGetFibonacciXML() {
 
-			logger.info("testGetFibonacci");
-
 			HttpHeaders requestHeaders = new HttpHeaders();
 			
 
@@ -51,7 +49,7 @@ public class FibonacciControllerTest {
 				
 				logger.debug("URL :" + serviceURL);
 				
-				 result = restHelper.get(serviceURL , requestHeaders, parameters);
+				result = restHelper.get(serviceURL , requestHeaders, parameters);
 				assertNotNull(result);
 				
 				assertEquals(HttpStatus.OK.value(),result.getStatusCode().value());
@@ -71,10 +69,7 @@ public class FibonacciControllerTest {
 		@Test
 		public void testGetFibonacciXMLInvalidInput() {
 
-			logger.info("testGetFibonacciInvalidInput");
-
 			HttpHeaders requestHeaders = new HttpHeaders();
-			
 
 			MultiValueMap<String, String> parameters = new LinkedMultiValueMap<String, String>();
 			parameters.add("seqNumber", "-1");
@@ -98,11 +93,7 @@ public class FibonacciControllerTest {
 		
 		@Test
 		public void testGetFibonacciJSON() {
-
-			logger.info("testGetFibonacciJSON");
-
 			HttpHeaders requestHeaders = new HttpHeaders();
-			
 
 			MultiValueMap<String, String> parameters = new LinkedMultiValueMap<String, String>();
 			parameters.add("seqNumber", "5");
