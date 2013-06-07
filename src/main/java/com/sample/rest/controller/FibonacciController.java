@@ -7,16 +7,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.sample.rest.entity.binding.BadRequest;
 import com.sample.rest.entity.binding.Fibonacci;
 import com.sample.rest.entity.binding.FibonacciJSON;
-import com.sample.rest.entity.binding.UnExpectedError;
 import com.sample.rest.service.fibonacci.FibonacciService;
 import com.sample.rest.utility.DataTransformation;
 
@@ -44,13 +41,19 @@ public class FibonacciController extends AbstractRESTController{
 	
 	@RequestMapping(value = "/fibonacci.json", method=RequestMethod.GET, produces= MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	ResponseEntity<String> generateFibonacciAsJson(@RequestParam final int seqNumber) throws IllegalArgumentException, Exception{
+	ResponseEntity<String> generateFibonacciAsJson(@RequestParam final int seqNumber){
 		//revisit this functionality, on marshalling it is not including the root element "fibonacci" in json response due to @XmlRootElement annotation issue
 		//Lets use the wrapper class for now
-		ResponseEntity<Fibonacci> response = generateFibonacci(seqNumber);
-		FibonacciJSON fibonacciJSON =  new FibonacciJSON(response.getBody());
-		String result = DataTransformation.getDataAsString(fibonacciJSON);
-		return new ResponseEntity<String>(result,HttpStatus.OK);
+		try {
+			ResponseEntity<Fibonacci> response = generateFibonacci(seqNumber);
+			FibonacciJSON fibonacciJSON =  new FibonacciJSON(response.getBody());
+			String result = DataTransformation.getDataAsString(fibonacciJSON);
+			return new ResponseEntity<String>(result,HttpStatus.OK);
+		}catch(IllegalArgumentException e){
+			return handleInvalidInputAsJson(e);
+		}catch (Exception e){
+			return handleUnExpectedErrorAsJson(e);
+		}
 	}
 	
 	ResponseEntity<Fibonacci> generateFibonacci(@RequestParam final int seqNumber) throws IllegalArgumentException, Exception{
@@ -69,28 +72,5 @@ public class FibonacciController extends AbstractRESTController{
 		return new ResponseEntity<Fibonacci>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
-	//TODO: enhance to support exceptions in json format
-	
-	@ExceptionHandler({IllegalArgumentException.class})
-	ResponseEntity<BadRequest> handleInvalidInput(Exception e) {
-		BadRequest badRequest = new BadRequest();
-		badRequest.setCode(Integer.toString(HttpStatus.BAD_REQUEST.value()));
-		badRequest.setMessage("Bad Request"); //TODO: define all the text message in resource bundle
-		badRequest.setDetails(e.getMessage());
-		return new ResponseEntity<BadRequest>(badRequest,HttpStatus.BAD_REQUEST);
-	}
-	
-	@ExceptionHandler({Exception.class})
-	ResponseEntity<UnExpectedError> handleUnExpectedError(Exception e) {
-		UnExpectedError error = new UnExpectedError();
-		error.setCode(Integer.toString(HttpStatus.INTERNAL_SERVER_ERROR.value()));
-		error.setMessage("Processing Error");
-		error.setDetails("Processing Error. Please contact support for further assistance");
-		return new ResponseEntity<UnExpectedError>(error,HttpStatus.INTERNAL_SERVER_ERROR);
-	}
-	
-	@RequestMapping(value = "")
-	ResponseEntity<String> unsupportedVerb(){
-		return new ResponseEntity<String>("Sorry, the page/api you were looking for was not found. Please check the API document for available service",HttpStatus.NOT_FOUND);
-	}
+
 }

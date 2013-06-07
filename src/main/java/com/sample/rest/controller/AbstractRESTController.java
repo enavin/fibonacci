@@ -2,16 +2,66 @@ package com.sample.rest.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
+import com.sample.rest.entity.binding.GenericError;
+import com.sample.rest.utility.DataTransformation;
 
 
 /**
- * Base controller which has all the common behaviors
+ * Base controller which has all the common REST service behaviors
+ *
  * @author Naveen
  *
  */
-// for future use - add the common controller behaviors here...
+
 public abstract class AbstractRESTController {
 	
 		private static final Logger logger = LoggerFactory.getLogger(AbstractRESTController.class);
+		
+		String exceptionJson = "{\"error\": {" 
+								+ "\"-code\": \"500\","
+								+ "\"message\": \"Processing Error\","
+								+ "\"details\": \"Processing Error. Please contact support for further assistance\"}}\"";
+		
+		//TODO: enhance to support exceptions in json format using ExceptionHandler. 
+		
+		@ExceptionHandler({IllegalArgumentException.class})
+		ResponseEntity<GenericError> handleInvalidInput(IllegalArgumentException e) {
+			return handleError(HttpStatus.BAD_REQUEST.value(), "Bad Request",e.getMessage(),e);
+		}
+		
+		@ExceptionHandler({Exception.class})
+		ResponseEntity<GenericError> handleUnExpectedError(Exception e) {
+			return handleError(HttpStatus.INTERNAL_SERVER_ERROR.value(), "Processing Error", "Processing Error. Please contact support for further assistance",e);
+		}
+		
+		protected ResponseEntity<GenericError> handleError(int code, String message, String details, Exception e) {
+			GenericError error = new GenericError();
+			error.setCode(Integer.toString(code));
+			error.setMessage(message);
+			error.setDetails(details);
+			logger.error("Error Code: " + code + " ,Message: " + message + " ,Details : " + details, e);
+			return new ResponseEntity<GenericError>(error,HttpStatus.valueOf(code));
+		}
+		
+		protected ResponseEntity<String> handleInvalidInputAsJson(IllegalArgumentException e)  {
+			ResponseEntity<GenericError> response= handleInvalidInput(e);
+			String errorJson ="";
+			try {
+				errorJson = DataTransformation.getDataAsString(response.getBody());
+			} catch (Exception e1) {
+				logger.error("Exception on handle invalid input as json conversion. ",e1);
+				return new ResponseEntity<String>(exceptionJson,HttpStatus.INTERNAL_SERVER_ERROR);
+				
+			}
+			return new ResponseEntity<String>(errorJson,HttpStatus.BAD_REQUEST);
+		}
+		
+		protected ResponseEntity<String> handleUnExpectedErrorAsJson(Exception e)  {
+			return new ResponseEntity<String>(exceptionJson,HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 		
 }
