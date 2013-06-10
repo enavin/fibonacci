@@ -1,7 +1,8 @@
 package com.sample.rest.service.fibonacci.impl;
 
 import java.math.BigInteger;
-import java.util.TreeMap;
+
+import com.sample.rest.entity.binding.FibonacciBean;
 
 /**
  * This class generates fibonacci using iterative model.
@@ -19,26 +20,26 @@ public class FibonacciIterative {
 	 * 
 	 * @return the fibonancci series object
 	 */
-	public TreeMap<String, BigInteger> getFibonacci(int seqNumber)
+	public FibonacciBean getFibonacci(int seqNumber)
 			throws IllegalArgumentException {
 		if (seqNumber < 0)
 			throw new IllegalArgumentException(
 					"Negative number or zero is not allowed. Input seqNumber needs to be greater than zero. Please check your input and retry.");
-
-		TreeMap<String, BigInteger> fibCache = new TreeMap<String, BigInteger>();
+		FibonacciBean fibonacciBean = new FibonacciBean();
 		for (int i = 0; i < seqNumber; i++) {
-			fibCache.put(Integer.toString(i), BigInteger.valueOf(fib(i)));
+			fibonacciBean.addValue(Integer.toString(i),fibonacciGenerator(i).toString());
 		}
-		return fibCache;
+		return fibonacciBean;
 	}
 
-	private int fib(int n) {
-		int previousOne = 0;
-		int preiviousTwo = 1;
+	private BigInteger fibonacciGenerator(int n) {
+		if(n ==0) return BigInteger.ZERO;
+		BigInteger previousOne = BigInteger.ZERO;
+		BigInteger preiviousTwo = BigInteger.ONE;
 		for (int i = 0; i < n; i++) {
-			int keepPreviousOne = previousOne;
+			BigInteger keepPreviousOne = previousOne;
 			previousOne = preiviousTwo;
-			preiviousTwo = keepPreviousOne + preiviousTwo;
+			preiviousTwo = keepPreviousOne.add(preiviousTwo);
 		}
 		return previousOne;
 	}

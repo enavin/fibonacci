@@ -1,10 +1,6 @@
 package com.sample.rest.service.fibonacci.impl;
 
-import java.math.BigInteger;
-import java.util.Iterator;
-import java.util.TreeMap;
-
-import com.sample.rest.entity.binding.Fibonacci;
+import com.sample.rest.entity.binding.FibonacciBean;
 import com.sample.rest.service.fibonacci.FibonacciService;
 
 /**
@@ -24,29 +20,9 @@ public class FibonacciServiceImpl implements FibonacciService {
 	 * @return Fibonacci series
 	 */
 	@Override
-	public Fibonacci getFibonacci(int seqNumber) {
+	public FibonacciBean getFibonacci(int seqNumber) throws IllegalArgumentException {
 		FibonacciIterative fibIt = new FibonacciIterative();
-		TreeMap<String,BigInteger> fibResult = fibIt.getFibonacci(seqNumber);	
-		//This treemap object provides flexibility to convert the fibonacci series to any format
-		Fibonacci fb = convertToFibonacciBean(fibResult);
-		return fb;
-	}
-
-	/**
-	 * Converts fibonacci series treemap to Fibonacci object
-	 * 
-	 * @param fibResult
-	 * 			fibonacci series in treemap object
-	 * 
-	 * @return Fibonacci series
-	 */
-	private Fibonacci convertToFibonacciBean(
-			TreeMap<String, BigInteger> fibResult) {
-		Fibonacci fb = new Fibonacci();
-		for (Iterator<String> seq = fibResult.keySet().iterator(); seq.hasNext();){
-			String key = seq.next();
-			fb.addValue(key, String.valueOf(fibResult.get(key)));
-		}
+		FibonacciBean fb = fibIt.getFibonacci(seqNumber);	
 		return fb;
 	}
 
