@@ -3,7 +3,7 @@
  */
 package com.sample.rest.service.fibonacci;
 
-import com.sample.rest.entity.binding.Fibonacci;
+import com.sample.rest.entity.binding.FibonacciBean;
 
 /**
  * This interface retrieves the fibonacci series
@@ -20,6 +20,6 @@ public interface FibonacciService {
 	 * 			the number of series that need to be generated
 	 * @return Fibonacci series
 	 */
-	public Fibonacci getFibonacci(int seqNumber);
+	public FibonacciBean getFibonacci(int seqNumber) throws IllegalArgumentException;
 
 }
