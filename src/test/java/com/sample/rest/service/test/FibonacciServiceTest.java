@@ -7,7 +7,7 @@ import net.sf.json.JSONObject;
 import org.junit.Test;
 
 import com.sample.rest.common.TestHelper;
-import com.sample.rest.entity.binding.Fibonacci;
+import com.sample.rest.entity.binding.FibonacciBean;
 import com.sample.rest.service.fibonacci.FibonacciService;
 import com.sample.rest.service.fibonacci.impl.FibonacciServiceImpl;
 
@@ -22,7 +22,7 @@ public class FibonacciServiceTest {
 	public void testGetFibonacci() {
 
 		FibonacciService fibonacciService = new FibonacciServiceImpl();
-		Fibonacci actualFibonacci = fibonacciService.getFibonacci(5);
+		FibonacciBean actualFibonacci = fibonacciService.getFibonacci(5);
 		
 		JSONObject actualJson = JSONObject.fromObject(actualFibonacci);
 		

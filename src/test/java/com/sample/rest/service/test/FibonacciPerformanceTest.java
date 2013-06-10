@@ -2,7 +2,6 @@ package com.sample.rest.service.test;
 
 import org.junit.Test;
 
-import com.sample.rest.service.fibonacci.impl.FibonacciCacheBasedGenerator;
 import com.sample.rest.service.fibonacci.impl.FibonacciIterative;
 
 public class FibonacciPerformanceTest {
@@ -20,12 +19,6 @@ public class FibonacciPerformanceTest {
 	public void testFibonacciPerformance() {
 		long startTime;
 		int seqNumber = 50000;
-		startTime = System.nanoTime();
-		FibonacciCacheBasedGenerator fibCacheBasedGen = new FibonacciCacheBasedGenerator();
-
-		fibCacheBasedGen.getFibonacci(seqNumber);
-		System.out.printf("Cached Fib: %d ms%n",
-				(System.nanoTime() - startTime) / 1000000);
 
 		startTime = System.nanoTime();
 		FibonacciIterative fibIt = new FibonacciIterative();

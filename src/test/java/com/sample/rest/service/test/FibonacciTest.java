@@ -3,11 +3,12 @@ package com.sample.rest.service.test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
-import java.math.BigInteger;
-import java.util.TreeMap;
+import java.util.Iterator;
 
 import org.junit.Test;
 
+import com.sample.rest.entity.binding.FibonacciBean;
+import com.sample.rest.entity.binding.Value;
 import com.sample.rest.service.fibonacci.impl.FibonacciIterative;
 
 public class FibonacciTest {
@@ -59,9 +60,12 @@ public class FibonacciTest {
 	public void testIntialSetofFive() {
 		int[] cases = new int[] {0,1,1,2,3};
 		
-		TreeMap<String, BigInteger> fib = fibIt.getFibonacci(5);
+		FibonacciBean fib = fibIt.getFibonacci(5);
+		Iterator<Value> valueIterator = fib.getValue().iterator();
 		for (int i = 0; i < 5; i++) {
-			assertEquals(cases[i],fib.get(Integer.toString(i)).intValue());
+			Value value = (Value)valueIterator.next();
+			assertEquals(String.valueOf(i), value.getIndex());
+			assertEquals(String.valueOf(cases[i]),value.getText());
 		}
 	}
 

@@ -2,12 +2,12 @@ package com.sample.rest.common;
 
 import net.sf.json.JSONObject;
 
-import com.sample.rest.entity.binding.Fibonacci;
+import com.sample.rest.entity.binding.FibonacciBean;
 
 public class TestHelper {
 
-	public static Fibonacci getTestData(){
-		Fibonacci expectedFibonacci = new Fibonacci();
+	public static FibonacciBean getTestData(){
+		FibonacciBean expectedFibonacci = new FibonacciBean();
 		expectedFibonacci.addValue("0","0");
 		expectedFibonacci.addValue("1","1");
 		expectedFibonacci.addValue("2","1");

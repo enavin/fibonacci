@@ -28,7 +28,7 @@ public class FibonacciControllerTest {
 		
 		private Logger logger = LoggerFactory.getLogger(FibonacciControllerTest.class);
 		String xmlTestData = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><fibonacci><value index=\"0\">0</value><value index=\"1\">1</value><value index=\"2\">1</value><value index=\"3\">2</value><value index=\"4\">3</value></fibonacci>";
-		String jsonTestData = "{\"fibonacci\":{\"value\":[{\"index\":\"0\",\"text\":\"0\"},{\"index\":\"1\",\"text\":\"1\"},{\"index\":\"2\",\"text\":\"1\"},{\"index\":\"3\",\"text\":\"2\"},{\"index\":\"4\",\"text\":\"3\"}]}}";
+		String jsonTestData = "{\"value\":[{\"index\":\"0\",\"text\":\"0\"},{\"index\":\"1\",\"text\":\"1\"},{\"index\":\"2\",\"text\":\"1\"},{\"index\":\"3\",\"text\":\"2\"},{\"index\":\"4\",\"text\":\"3\"}]}";
 		
 		@Test
 		public void setup(){
@@ -47,7 +47,7 @@ public class FibonacciControllerTest {
 			testGetFibonacciJSON();
 		}
 		
-		//@Test
+		@Test
 		public void testGetFibonacciXML() {
 
 			HttpHeaders requestHeaders = new HttpHeaders();
@@ -61,7 +61,7 @@ public class FibonacciControllerTest {
 				
 				logger.debug("URL :" + serviceURL);
 				
-				result = restHelper.get(serviceURL , requestHeaders, parameters);
+				result = restHelper.get(serviceURL + ".xml", requestHeaders, parameters);
 				assertNotNull(result);
 				
 				assertEquals(HttpStatus.OK.value(),result.getStatusCode().value());
@@ -78,7 +78,7 @@ public class FibonacciControllerTest {
 			}
 		}	
 		
-		//@Test
+		@Test
 		public void testGetFibonacciXMLInvalidInput() {
 
 			HttpHeaders requestHeaders = new HttpHeaders();
@@ -91,7 +91,7 @@ public class FibonacciControllerTest {
 				
 				logger.debug("URL :" + serviceURL);
 				
-				result = restHelper.get(serviceURL , requestHeaders, parameters);
+				result = restHelper.get(serviceURL + ".xml", requestHeaders, parameters);
 				assertNotNull(result);
 				
 				assertEquals(HttpStatus.BAD_REQUEST.value(),result.getStatusCode().value());
@@ -103,7 +103,7 @@ public class FibonacciControllerTest {
 			}
 		}	
 		
-		//@Test
+		@Test
 		public void testGetFibonacciJSON() {
 			HttpHeaders requestHeaders = new HttpHeaders();
 

@@ -11,7 +11,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 /**
- * This helper class provides wrapper api for REST calls 
+ * This helper class provides wrapper api for Spring RESTTemplate calls 
  * 
  * @author Naveen
  *
