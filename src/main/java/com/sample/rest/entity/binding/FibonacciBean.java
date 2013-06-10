@@ -42,7 +42,7 @@ import javax.xml.bind.annotation.XmlType;
     "value"
 })
 @XmlRootElement(name = "fibonacci")
-public class Fibonacci {
+public class FibonacciBean {
 
     @XmlElement(required = true)
     protected List<Value> value;

@@ -37,11 +37,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Fibonacci }
+     * Create an instance of {@link FibonacciBean }
      * 
      */
-    public Fibonacci createFibonacci() {
-        return new Fibonacci();
+    public FibonacciBean createFibonacci() {
+        return new FibonacciBean();
     }
 
     /**

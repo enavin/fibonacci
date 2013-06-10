@@ -8,13 +8,9 @@
 
 package com.sample.rest.entity.binding;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
 
 
 /**
@@ -41,18 +37,18 @@ import javax.xml.bind.annotation.XmlType;
 public class FibonacciJSON {
 
     @XmlElement(required = true, name = "fibonacci")
-    protected Fibonacci fibonacci;
+    protected FibonacciBean fibonacci;
 
     
-	public FibonacciJSON(Fibonacci fibonacci) {
+	public FibonacciJSON(FibonacciBean fibonacci) {
 		this.fibonacci=fibonacci;
 	}
 
-	public Fibonacci getFibonacci() {
+	public FibonacciBean getFibonacci() {
 		return fibonacci;
 	}
 
-	public void setFibonacci(Fibonacci fibonacci) {
+	public void setFibonacci(FibonacciBean fibonacci) {
 		this.fibonacci = fibonacci;
 	}
 
