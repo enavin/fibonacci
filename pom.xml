@@ -8,12 +8,12 @@
 	<name>fibonacci</name>
 	<description>A simple SpringFramework based Fibonacci RESTful web service</description>
 
-	<!--  TODO: Cleanup unwanted jars, this would help to reduce the perm size -->
+	<!-- TODO: Cleanup unwanted jars, this would help to reduce the perm size -->
 	<properties>
 		<java-version>1.6</java-version>
 		<org.springframework-version>3.2.0.RELEASE</org.springframework-version>
 		<org.aspectj-version>1.6.9</org.aspectj-version>
-		<org.slf4j-version>1.6.1</org.slf4j-version>
+		<org.slf4j-version>1.6.1</org.slf4j-version> 
 	</properties>
 
 	<dependencies>
@@ -26,7 +26,7 @@
 				<!-- Exclude Commons Logging in favor of SLF4j -->
 				<exclusion>
 					<groupId>commons-logging</groupId>
-					<artifactId>commons-logging</artifactId>
+					<artifactId>commons-logging</artifactId> 
 				</exclusion>
 			</exclusions>
 		</dependency>
@@ -72,19 +72,9 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-jdbc</artifactId>
-			<version>${org.springframework-version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
 			<version>${org.springframework-version}</version>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
-			<version>${org.springframework-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -115,7 +105,7 @@
 
 
 		<!-- Logging -->
-		<dependency>
+		<dependency> 
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.17</version>
@@ -204,6 +194,12 @@
 		</dependency>
 
 		<!-- Other Libraries -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.12</version>
+		</dependency>
+
 		<dependency>
 			<groupId>net.sf</groupId>
 			<artifactId>json-lib</artifactId>
