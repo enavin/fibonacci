@@ -9,15 +9,15 @@ import org.junit.Test;
 
 import com.sample.rest.entity.binding.FibonacciBean;
 import com.sample.rest.entity.binding.Value;
-import com.sample.rest.service.fibonacci.impl.FibonacciIterative;
+import com.sample.rest.service.fibonacci.impl.FibonacciServiceIterativeImpl;
 
 public class FibonacciTest {
 
-	private static FibonacciIterative fibIt = null;
+	private static FibonacciServiceIterativeImpl fibIt = null;
 
 	@Test
 	public void setup() {
-		fibIt = new FibonacciIterative();
+		fibIt = new FibonacciServiceIterativeImpl();
 	}
 
 	/**

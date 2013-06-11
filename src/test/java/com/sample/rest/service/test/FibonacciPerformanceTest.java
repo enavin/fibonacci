@@ -2,7 +2,7 @@ package com.sample.rest.service.test;
 
 import org.junit.Test;
 
-import com.sample.rest.service.fibonacci.impl.FibonacciIterative;
+import com.sample.rest.service.fibonacci.impl.FibonacciServiceIterativeImpl;
 
 public class FibonacciPerformanceTest {
 
@@ -21,7 +21,7 @@ public class FibonacciPerformanceTest {
 		int seqNumber = 500;
 
 		startTime = System.nanoTime();
-		FibonacciIterative fibIt = new FibonacciIterative();
+		FibonacciServiceIterativeImpl fibIt = new FibonacciServiceIterativeImpl();
 		fibIt.getFibonacci(seqNumber);
 		System.out.printf("Iterative Fib: %d ms%n",
 				(System.nanoTime() - startTime) / 1000000);

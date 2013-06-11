@@ -8,7 +8,7 @@ import java.util.TreeMap;
 import org.junit.Test;
 
 import com.sample.rest.entity.binding.FibonacciBean;
-import com.sample.rest.service.fibonacci.impl.FibonacciIterative;
+import com.sample.rest.service.fibonacci.impl.FibonacciServiceIterativeImpl;
 
 public class FibonacciIterativeTest {
 
@@ -20,7 +20,7 @@ public class FibonacciIterativeTest {
 	@Test
 	public void testFibonacciIterative() {
 
-		FibonacciIterative fibIt = new FibonacciIterative();
+		FibonacciServiceIterativeImpl fibIt = new FibonacciServiceIterativeImpl();
 		FibonacciBean fb = fibIt.getFibonacci(5);
 		assertNotNull(fb);
 		
