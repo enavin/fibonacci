@@ -39,12 +39,20 @@ import javax.xml.bind.annotation.XmlValue;
 })
 @XmlRootElement(name = "value")
 public class Value {
-
-    @XmlValue
-    protected String text;
+    
     @XmlAttribute
     protected String index;
+    @XmlValue
+    protected String text;
     
+    public Value(){
+    	
+    }
+    
+    public Value(String index, String text){
+    	this.index = index;
+    	this.text = text;
+    }
     
 
 

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sample.rest.entity.binding.FibonacciBean;
+import com.sample.rest.entity.binding.FibonacciJSON;
 import com.sample.rest.service.fibonacci.FibonacciService;
 
 

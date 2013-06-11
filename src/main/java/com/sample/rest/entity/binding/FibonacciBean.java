@@ -81,9 +81,7 @@ public class FibonacciBean {
     }
     
     public void addValue(String index, String content){
-    	Value value = new Value();
-    	value.setText(content);
-    	value.setIndex(index);
+    	Value value = new Value(index,content);
     	getValue().add(value);
     }
     
