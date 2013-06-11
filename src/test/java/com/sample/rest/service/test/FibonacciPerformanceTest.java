@@ -18,7 +18,7 @@ public class FibonacciPerformanceTest {
 	@Test
 	public void testFibonacciPerformance() {
 		long startTime;
-		int seqNumber = 50000;
+		int seqNumber = 500;
 
 		startTime = System.nanoTime();
 		FibonacciIterative fibIt = new FibonacciIterative();
