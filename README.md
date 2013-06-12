@@ -112,4 +112,15 @@ Further enhancement for this service can be done by using fast fibonacci algorit
 <h3>Summary</h3>
 While the sample is trivial, this should provide enough detail to get you up and running RESTful service using SpringFramework. You can download the code and modify it as you see fit. Enjoy!
 
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-41551168-1', 'github.com');
+  ga('send', 'pageview');
+
+</script>
+
 
